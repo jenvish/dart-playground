@@ -63,6 +63,7 @@ void main() {
   player2.gotHit(12);
   player2.gotHit(12);
   player2.gotHit(12);
+  player1.gotHit(10);
   player1.showDetails();
   player2.showDetails();
 }
