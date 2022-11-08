@@ -2,11 +2,9 @@ class Player {
   int health;
   String name;
   bool isDead;
+  int score;
 
-  Player(String temp)
-      : health = 100,
-        name = temp,
-        isDead = false;
+  Player(String temp): health=100, name=temp, isDead=false, score=0;
 
   void gotHit(int hitpoint) {
     if (health - hitpoint > 0) {
@@ -22,6 +20,11 @@ class Player {
     } else {
       health = 100;
     }
+  }
+
+  void shoot(Player anotherplayer, int hitpoint) {
+    score+=hitpoint;
+    anotherplayer.gotHit(hitpoint);
   }
 
   void recall() {
@@ -46,6 +49,7 @@ class Player {
     } else {
       print('I am ${name}, and I have ${health}% health');
     }
+    print('My score is ${score}');
   }
 }
 
@@ -65,6 +69,7 @@ void main() {
   player2.gotHit(12);
   player2.gotHit(12);
   player2.gotHit(12);
+  player1.shoot(player2, 5);
   player2.gotHit(12);
   player1.gotHit(10);
   player1.showDetails();
