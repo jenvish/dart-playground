@@ -4,7 +4,11 @@ class Player {
   bool isDead;
   int score;
 
-  Player(String temp): health=100, name=temp, isDead=false, score=0;
+  Player(String temp)
+      : health = 100,
+        name = temp,
+        isDead = false,
+        score = 0;
 
   void gotHit(int hitpoint) {
     if (health - hitpoint > 0) {
@@ -23,7 +27,7 @@ class Player {
   }
 
   void shoot(Player anotherplayer, int hitpoint) {
-    score+=hitpoint;
+    score += hitpoint;
     anotherplayer.gotHit(hitpoint);
   }
 
