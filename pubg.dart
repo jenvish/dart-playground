@@ -3,18 +3,21 @@ class Player {
   String name;
   bool isDead;
 
-  Player(String temp): health=100, name=temp, isDead=false;
+  Player(String temp)
+      : health = 100,
+        name = temp,
+        isDead = false;
 
   void gotHit(int hitpoint) {
-    if(health - hitpoint > 0) {
+    if (health - hitpoint > 0) {
       health = health - hitpoint;
-    } else if(!isDead) {
+    } else if (!isDead) {
       dead();
     }
   }
 
   void heal(int healpoint) {
-    if(health + healpoint <=100) {
+    if (health + healpoint <= 100) {
       health = health + healpoint;
     } else {
       health = 100;
@@ -22,9 +25,9 @@ class Player {
   }
 
   void recall() {
-    if(isDead) {
+    if (isDead) {
       isDead = false;
-      health=100;
+      health = 100;
       print('Vishwa is recalled');
     } else {
       print('You are not dead yet ${name}!');
@@ -38,7 +41,7 @@ class Player {
   }
 
   void showDetails() {
-    if(isDead) {
+    if (isDead) {
       print('I am ${name}, and I am dead');
     } else {
       print('I am ${name}, and I have ${health}% health');
@@ -67,6 +70,3 @@ void main() {
   player1.showDetails();
   player2.showDetails();
 }
-
-// initialization
-// declare
